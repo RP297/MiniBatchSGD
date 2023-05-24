@@ -9,7 +9,7 @@ class LinearRegression:
         self.eta = eta
         self.iterations = iterations
 
-    def MiniBatchSGD(self):
+    def miniBatchSGD(self):
         for i in range(self.iterations):
             indices = np.random.choice(self.A.shape[0], self.k, replace=False)
             A_batch = self.A[indices]
@@ -27,7 +27,7 @@ class LinearRegression:
         return opt_x, opt_obj_value
 
 model = LinearRegression(k=10, eta=0.001, iterations=1000)
-model.MiniBatchSGD()
+model.miniBatchSGD()
 
 computed_x, objective_value = model.computed()
 optimal_x, optimal_objective_value = model.optimal()
